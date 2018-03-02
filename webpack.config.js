@@ -10,6 +10,7 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
@@ -17,7 +18,7 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.scss/,
         loader: 'style-loader!css-loader!sass-loader'
       }
     ]

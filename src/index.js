@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { browserHistory, Router } from 'react-router';
 
 import thunk from 'redux-thunk';
+import '../style/style.scss';
 
 import routes from './routes';
 import reducers from './reducers';
