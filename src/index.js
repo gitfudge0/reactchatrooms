@@ -17,4 +17,4 @@ ReactDOM.render(
     <Router history={browserHistory} routes={routes}>
     </Router>
   </Provider>  
-  , document.querySelector('.container'));
+  , document.querySelector('.container-fluid'));
