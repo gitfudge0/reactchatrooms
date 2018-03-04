@@ -1,0 +1,65 @@
+#page_chatroom {
+    height: 100%;
+    background: #1A1A1A;
+
+    header {
+        background: #fc00ff;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #00dbde, #fc00ff);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #00dbde, #fc00ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        div {
+            color: white;
+            display: flex;
+            padding-left: 16px;
+            padding-right: 16px;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px; 
+        }
+    }
+
+    .chat-messages-area {
+        height: calc(100% - 128px);
+        padding: 16px;
+        overflow-y: auto;
+        padding: 16px;
+
+        .chat-message {
+            margin-top: 16px;
+            margin-bottom: 16px;
+            
+            .message {
+                color: white;
+                max-width: 60%;
+                width: fit-content;
+                border-radius: 6px;
+                background: #0074D9;
+                padding: 8px 16px;
+                box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
+
+                .user,
+                .time {
+                    font-size: 10px;
+                    opacity: 0.6;
+                }
+            }
+            .message-user {
+                background: #5A17ED;
+            }
+        }
+    }
+
+    .message-box {
+        color: white;
+        display: flex;
+        padding-left: 16px;
+        padding-right: 16px;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px; 
+        
+        button {
+            margin-left: 8px;
+        }
+    }
+}

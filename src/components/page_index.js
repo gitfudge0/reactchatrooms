@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { checkConnection } from '../actions/index';
 
 class IndexPage extends Component {
+
+    static contextTypes = {
+        router: PropTypes.object
+    }
 
     componentWillMount() {
         this.props.checkConnection()
@@ -12,39 +16,58 @@ class IndexPage extends Component {
     constructor(props) {
         super(props);
 
-        this.onRoomIdInputChange = this.onRoomIdInputChange.bind(this);
-        this.onRoomIdFormSubmit = this.onRoomIdFormSubmit.bind(this);
+        this.onUsernameInputChange = this.onUsernameInputChange.bind(this);
+        this.onRoomInputChange = this.onRoomInputChange.bind(this);
+        this.onRoomFormSubmit = this.onRoomFormSubmit.bind(this);
         
         this.state = {
-            roomID: ''
+            room: ''
         }
     }
 
-    onRoomIdInputChange(event) {
-        this.setState({roomID: event.target.value});
+    onUsernameInputChange(event) {
+        this.setState({user: event.target.value});
     }
 
-    onRoomIdFormSubmit(event) {
+    onRoomInputChange(event) {
+        this.setState({room: event.target.value});
+    }
+
+    onRoomFormSubmit(event) {
         event.preventDefault();
-        console.log("Form was submitted")
+        console.log("Setting session storage")
+        sessionStorage.setItem('rca_user', this.state.user)
+        sessionStorage.setItem('rca_room', this.state.room)
+
+        this.context.router.push('/chatroom')
     }
 
     render() {
         if(this.props.isConnectionLive)
             return (
                 <div id="page-index">
-                    <h2>React Chat Rooms</h2>
                     
-                    <form className="input-group" onSubmit={this.onRoomIdFormSubmit}>
+                    <form onSubmit={this.onRoomFormSubmit}>
+                    <h2>React Chat Rooms</h2>
                         <div className="form-group">
-                            <label>Enter room ID</label>
+                            <label>Username</label>
                             <input 
                                 className="form-control" 
                                 type="text"
-                                value={this.state.roomID}
-                                onChange={this.onRoomIdInputChange} />
+                                value={this.state.user}
+                                onChange={this.onUsernameInputChange} />
                         </div>
-                        <button type="submit" className="btn btn-primary">Join</button>
+                        <div className="form-group">
+                            <label>Room ID</label>
+                            <input 
+                                className="form-control" 
+                                type="text"
+                                value={this.state.room}
+                                onChange={this.onRoomInputChange} />
+                        </div>
+                        <div className="form-group">
+                            <button type="submit" className="btn btn-primary">Join</button>
+                        </div>
                     </form>
                 </div>
             )
