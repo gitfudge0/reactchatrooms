@@ -1,25 +1,19 @@
-# ReduxSimpleStarter
-
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+# React Chat Rooms
 
 ### Getting Started
 
-There are two methods for getting started with this repo.
+Clone the repo and install all dependencies
 
-#### Familiar with Git?
-Checkout this repo, install dependencies, then start the gulp process with the following:
+### Pre-requisites
 
-```
-> git clone https://github.com/StephenGrider/ReduxSimpleStarter.git
-> cd ReduxSimpleStarter
-> npm install
-> npm start
-```
+* [Backend application](https://github.com/thediggu/reactchatrooms-backend)
+* MongoDB
+* Patience
 
-#### Not Familiar with Git?
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+### To-Do
 
-```
-> npm install
-> npm start
-```
+[] Private messages
+
+[] User profiles
+
+[] Message types
