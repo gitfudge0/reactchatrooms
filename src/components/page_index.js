@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import io from 'socket.io-client';
+import { BASE_URL } from '../actions/index';
 
 import { checkConnection } from '../actions/index';
 
@@ -7,10 +9,6 @@ class IndexPage extends Component {
 
     static contextTypes = {
         router: PropTypes.object
-    }
-
-    componentWillMount() {
-        this.props.checkConnection()
     }
     
     constructor(props) {
@@ -25,6 +23,19 @@ class IndexPage extends Component {
         }
     }
 
+    componentWillMount() {
+        this.props.checkConnection()
+        if(sessionStorage.getItem('rca_user') && sessionStorage.getItem('rca_room')) {
+            const socket = io(BASE_URL);
+            socket.emit('leave room', {
+                user: sessionStorage.getItem('rca_user'),
+                room: sessionStorage.getItem('rca_room')
+            })
+            sessionStorage.removeItem('rca_user')
+            sessionStorage.removeItem('rca_room')
+        }
+    }
+    
     onUsernameInputChange(event) {
         this.setState({user: event.target.value});
     }
