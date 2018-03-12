@@ -5,11 +5,12 @@ const express = require('express'),
     io = require('./controllers/io')(server),
     path = require('path'),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    config = require('./config/config.json');
 
-mongoose.connect('mongodb://localhost/reactchatapp');
+mongoose.connect(`mongodb://${config.database.host}:${config.database.port}/${config.database.db}`);
 
-const PORT = 3000;
+const PORT = config.server.port;
 
 app.use(bodyParser.urlencoded({
     extended: true

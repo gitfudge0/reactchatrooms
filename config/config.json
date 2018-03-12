@@ -1,0 +1,11 @@
+{
+    "database": {
+        "host": "localhost",
+        "port": 27017,
+        "db": "reactchatapp"
+    },
+    "server": {
+        "host": "locahost",
+        "port": 3000
+    }
+}
