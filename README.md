@@ -1,8 +1,16 @@
 # React Chat Rooms
 
+A react/redux chatroom application that let's users join into chatrooms of their choice. After entering a chatroom, users can engage in a conversation with everyone in the chatroom. This is a MERN stack application built from scratch.
+
 ### Getting Started
 
-Clone the repo and install all dependencies
+Run the following commands to clone the repo and start using the application
+
+```
+git clone https://github.com/thediggu/reactchatrooms
+npm i
+npm run start
+```
 
 ### Dev docs
 
