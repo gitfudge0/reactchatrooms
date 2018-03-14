@@ -2,8 +2,8 @@
 bundle.js
 npm-debug.log
 .DS_Store
-/public
-/dist
+/public/*
+/dist/*
 
 # IntelliJ
 *.iml
