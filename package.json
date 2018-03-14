@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"webpack-dev-server --config ./webpack.config.js --progress --content-base ./public --watch --mode=development\" \"./node_modules/nodemon/bin/nodemon.js index.js\"",
+    "start": "concurrently \"webpack --config ./webpack.config.js --progress --watch --mode=development\" \"./node_modules/nodemon/bin/nodemon.js index.js\"",
     "client": "webpack-dev-server --config ./webpack.config.js --progress --content-base ./public --watch --mode=development",
     "server": "./node_modules/nodemon/bin/nodemon.js index.js",
     "build": "webpack --config ./webpack.config.js --progress --devtool=source-map --mode=production"
